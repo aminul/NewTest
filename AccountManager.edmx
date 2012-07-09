@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AccountManagerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="AccountManagerModelStoreContainer">
+          <EntitySet Name="User" EntityType="AccountManagerModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserRoll" EntityType="AccountManagerModel.Store.UserRoll" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_users_users" Association="AccountManagerModel.Store.FK_users_users">
+            <End Role="UserRoll" EntitySet="UserRoll" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="decimal" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="RegDate" Type="datetime" />
+          <Property Name="ExpireDate" Type="datetime" />
+          <Property Name="Street" Type="varchar" MaxLength="150" />
+          <Property Name="Street2" Type="varchar" MaxLength="150" />
+          <Property Name="City" Type="varchar" MaxLength="100" />
+          <Property Name="State" Type="varchar" MaxLength="100" />
+          <Property Name="Postalcode" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="100" />
+          <Property Name="Mobile" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="150" />
+          <Property Name="Username" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="UserRollId" Type="int" />
+        </EntityType>
+        <EntityType Name="UserRoll">
+          <Key>
+            <PropertyRef Name="UserRollId" />
+          </Key>
+          <Property Name="UserRollId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserRollName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_users_users">
+          <End Role="UserRoll" Type="AccountManagerModel.Store.UserRoll" Multiplicity="0..1" />
+          <End Role="User" Type="AccountManagerModel.Store.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRoll">
+              <PropertyRef Name="UserRollId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserRollId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AccountManagerModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AccountManagerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="AccountManagerModel.User" />
+          <EntitySet Name="UserRolls" EntityType="AccountManagerModel.UserRoll" />
+          <AssociationSet Name="FK_users_users" Association="AccountManagerModel.FK_users_users">
+            <End Role="UserRoll" EntitySet="UserRolls" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Decimal" Name="UserId" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="RegDate" />
+          <Property Type="DateTime" Name="ExpireDate" />
+          <Property Type="String" Name="Street" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Street2" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="State" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Postalcode" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Country" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Phone" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Mobile" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Email" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="UserRollId" />
+          <NavigationProperty Name="UserRoll" Relationship="AccountManagerModel.FK_users_users" FromRole="User" ToRole="UserRoll" />
+        </EntityType>
+        <EntityType Name="UserRoll">
+          <Key>
+            <PropertyRef Name="UserRollId" />
+          </Key>
+          <Property Type="Int32" Name="UserRollId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserRollName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="AccountManagerModel.FK_users_users" FromRole="UserRoll" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_users_users">
+          <End Type="AccountManagerModel.UserRoll" Role="UserRoll" Multiplicity="0..1" />
+          <End Type="AccountManagerModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRoll">
+              <PropertyRef Name="UserRollId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserRollId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AccountManagerModelStoreContainer" CdmEntityContainer="AccountManagerEntities">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="AccountManagerModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserRollId" ColumnName="UserRollId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Postalcode" ColumnName="Postalcode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street2" ColumnName="Street2" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRolls">
+            <EntityTypeMapping TypeName="AccountManagerModel.UserRoll">
+              <MappingFragment StoreEntitySet="UserRoll">
+                <ScalarProperty Name="UserRollName" ColumnName="UserRollName" />
+                <ScalarProperty Name="UserRollId" ColumnName="UserRollId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="AccountManager">
+        <EntityTypeShape EntityType="AccountManagerModel.User" Width="1.5" PointX="3" PointY="1" Height="4.4802050781250014" />
+        <EntityTypeShape EntityType="AccountManagerModel.UserRoll" Width="1.5" PointX="0.75" PointY="2.5" Height="1.59568359375" />
+        <AssociationConnector Association="AccountManagerModel.FK_users_users" >
+          <ConnectorPoint PointX="2.25" PointY="3.297841796875" />
+          <ConnectorPoint PointX="3" PointY="3.297841796875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

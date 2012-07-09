@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AccountManagerModelStoreContainer" CdmEntityContainer="AccountManagerEntities">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="AccountManagerModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserRollId" ColumnName="UserRollId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Postalcode" ColumnName="Postalcode" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Street2" ColumnName="Street2" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+          <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRolls">
+      <EntityTypeMapping TypeName="AccountManagerModel.UserRoll">
+        <MappingFragment StoreEntitySet="UserRoll">
+          <ScalarProperty Name="UserRollName" ColumnName="UserRollName" />
+          <ScalarProperty Name="UserRollId" ColumnName="UserRollId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

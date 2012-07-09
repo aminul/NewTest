@@ -1,0 +1,16 @@
+D:\OdeskProject\kendy\SmartHR\AccountProject\bin\EntityFramework.dll
+D:\OdeskProject\kendy\SmartHR\AccountProject\bin\EntityFramework.xml
+D:\OdeskProject\kendy\SmartHR\AccountProject\obj\Debug\ResolveAssemblyReference.cache
+D:\OdeskProject\kendy\SmartHR\AccountProject\bin\SmartHR.dll
+D:\OdeskProject\kendy\SmartHR\AccountProject\bin\SmartHR.pdb
+D:\OdeskProject\kendy\SmartHR\AccountProject\bin\SmartHR.Core.dll
+D:\OdeskProject\kendy\SmartHR\AccountProject\bin\SmartHR.Core.pdb
+D:\OdeskProject\kendy\SmartHR\AccountProject\obj\Debug\SmartHR.dll
+D:\OdeskProject\kendy\SmartHR\AccountProject\obj\Debug\SmartHR.pdb
+D:\OdeskProject\kendy\SmartHR\SmartHR\obj\Debug\ResolveAssemblyReference.cache
+D:\OdeskProject\kendy\SmartHR\SmartHR\obj\Debug\SmartHR.pdb
+D:\OdeskProject\kendy\SmartHR\SmartHR\bin\SmartHR.dll
+D:\OdeskProject\kendy\SmartHR\SmartHR\bin\SmartHR.pdb
+D:\OdeskProject\kendy\SmartHR\SmartHR\bin\EntityFramework.dll
+D:\OdeskProject\kendy\SmartHR\SmartHR\bin\EntityFramework.xml
+D:\OdeskProject\kendy\SmartHR\SmartHR\obj\Debug\SmartHR.dll

@@ -1,0 +1,9 @@
+D:\OdeskProject\kendy\AccountProject\AccountProject\bin\AccountProject.dll
+D:\OdeskProject\kendy\AccountProject\AccountProject\bin\AccountProject.pdb
+D:\OdeskProject\kendy\AccountProject\AccountProject\bin\Account.Core.dll
+D:\OdeskProject\kendy\AccountProject\AccountProject\bin\EntityFramework.dll
+D:\OdeskProject\kendy\AccountProject\AccountProject\bin\Account.Core.pdb
+D:\OdeskProject\kendy\AccountProject\AccountProject\bin\EntityFramework.xml
+D:\OdeskProject\kendy\AccountProject\AccountProject\obj\Debug\ResolveAssemblyReference.cache
+D:\OdeskProject\kendy\AccountProject\AccountProject\obj\Debug\AccountProject.dll
+D:\OdeskProject\kendy\AccountProject\AccountProject\obj\Debug\AccountProject.pdb
